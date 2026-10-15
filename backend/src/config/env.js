@@ -38,7 +38,13 @@ export const env = {
 
   mongoUri: required('MONGODB_URI', 'mongodb://127.0.0.1:27017/ecomva_verify'),
 
-  jwtSecret: required('JWT_SECRET', 'dev_only_change_me_please_change_me_please'),
+  // jwtSecret: required('JWT_SECRET', 'dev_only_change_me_please_change_me_please'),
+  jwtSecret: required(
+  'JWT_SECRET',
+  process.env.NODE_ENV === 'production'
+    ? undefined
+    : 'dev_only_change_me_please_change_me_please'
+),
   jwtAccessExpiresIn: process.env.JWT_ACCESS_EXPIRES_IN || '15m',
   jwtRefreshExpiresIn: process.env.JWT_REFRESH_EXPIRES_IN || '7d',
 
