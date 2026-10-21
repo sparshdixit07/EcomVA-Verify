@@ -383,7 +383,7 @@ export default function Landing() {
                             {va.headline || va.country || 'E-commerce VA'}
                           </div>
                         </div>
-                        <ScoreBadge score={va.performance?.overallScore} label="#{idx+1}" />
+                        <ScoreBadge score={va.performance?.overallScore} label={`#${idx + 1}`} />
                       </Link>
                     );
                   })}
